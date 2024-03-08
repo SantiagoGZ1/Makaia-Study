@@ -283,7 +283,19 @@ public class learn {
 
 ## Constructor
 
-Cuando hacemos un constructor es la plantilla, para realizar varios objetos de un mismo tipo. Por ejemplo el constructor de carros se puede hacer para crear diferentes modelos de carros pero repitiendo algunos o todos los metodos o atributos.
+Los constructores en Java se utilizan para inicializar los objetos cuando se crea una instancia de una clase. Aquí hay algunas situaciones en las que debes usar constructores:
+
+**Inicialización de objetos**: Cuando necesitas inicializar los atributos de un objeto con valores específicos al crear una nueva instancia de una clase, es necesario utilizar un constructor para proporcionar esos valores iniciales.
+
+**Encapsulación de la inicialización**: Los constructores te permiten encapsular la lógica de inicialización dentro de la clase, lo que ayuda a garantizar que los objetos se creen en un estado coherente y válido.
+
+**Asignación de valores predeterminados**: Los constructores pueden utilizarse para asignar valores predeterminados a los atributos de un objeto si no se proporcionan valores específicos al crear la instancia.
+
+**Inicialización de recursos**: Si tu clase necesita inicializar recursos externos, como conexiones a bases de datos o archivos, un constructor puede ser el lugar adecuado para realizar estas inicializaciones.
+
+**Sobrecarga de constructores**: Puedes proporcionar varios constructores en una clase utilizando la técnica de sobrecarga. Esto te permite crear instancias de la clase de diferentes maneras, proporcionando flexibilidad en la creación de objetos.
+
+En resumen, debes usar constructores en Java cuando necesites inicializar objetos con valores específicos, asignar valores predeterminados, encapsular la lógica de inicialización, inicializar recursos externos o proporcionar flexibilidad en la creación de objetos mediante la sobrecarga de constructores.
 
 ```java
 //Contructor Vacío
@@ -354,10 +366,16 @@ public class Coche {
     }
 }
 ```
-## Set y Get
-Cuando hemos declarado nuestros atributos como private, como en el ejemplo de la clase Coche, necesitamos los métodos públicos conocidos como getters y setters que nos permiten manipular o modificar los valores de nuestros atributos o recuperar los valores de dichos atributos.
 
-En caso de que los atributos fueran públicos, no haría falta usarlos pues se tendría acceso a ellos sin ningún tipo de control.
+## Set y Get
+En Java, los getters y setters son métodos utilizados para acceder y modificar los atributos de una clase de forma controlada, en lugar de permitir un acceso directo a los mismos desde fuera de la clase. Se utilizan para garantizar la encapsulación de los datos y para aplicar el principio de ocultamiento de la información.
+Aquí hay algunas pautas generales sobre cuándo utilizar getters y setters en Java:
+
+**Encapsulación**: Los getters y setters permiten controlar el acceso a los atributos de una clase, lo que garantiza que estos atributos no puedan ser modificados directamente desde fuera de la clase. Esto ayuda a mantener la coherencia y la integridad de los datos.
+
+**Control de acceso**: Si deseas permitir el acceso a un atributo pero quieres controlar cómo se accede o se modifica, puedes utilizar getters y setters para definir reglas específicas de acceso o validación de
+
+>💡En caso de que los atributos fueran públicos, no haría falta usarlos pues se tendría acceso a ellos sin ningún tipo de control.
 
 **SET**
 Permiten modificar los atributos privados.
@@ -872,6 +890,122 @@ public class Cuadrado extends Figura {
 
 **Interfaces**: 
 
+## Más conceptos POO
+
+### Composición
+Es cuando una clase depende de otra para poder funcionar, por ejemplo un celular y una bateria, es decir, la bateria (parte) hace parte del celular (todo) (para poder funcionar). Tener en cuenta si un objeto todo es destruido, tambien serán destruidas sus partes
+[🔗](https://youtu.be/U9-iM-gA7-E?t=107).
+
+PREMISA COMPOSICIONES EN JAVA| NUESTRO COCHE
+------- | -------
+La composición crea una relación “tiene un…” entre objetos. | El coche tiene un volante, cinturón, rueda.
+Los objetos que componen a la clase contenedora deben existir desde el principio. | El volante lo creo antes de crear el coche.
+No debería una clase contenedora existir sin alguno de sus objetos componentes. | Para que funcione el coche debe tener volante.
+Objetos componentes (partes) como la clase contenedora, nacen y mueren al mismo tiempo. Tienen el mismo tiempo de vida. | Si el volante se estropea no funciona el coche.
+
+
+### Agregación
+no son dependiente de otras clases, por ejemplo la clase celular y la clase sim, no depen una de otra pero se agregan o complementan.
+
+### Genericos
+
+
+### Colecciones
+Las colecciones son similares a los Arrays, la diferencia es que la Colección es un almacén de objetos dinámicos, es decir que el almacén puede crecer o disminuir durante la ejecución del programa, mientras que un array tiene un tamaño fijo.
+
+Por ejemplo… Imaginemos que hemos creado una colección para que almacene 5 objetos y necesitamos que durante la ejecución del programa almacene 2 objetos más, gracias a esta funcionalidad de Java, esa colección es capaz de crecer.
+
+**Ventajas**
+
+- Pueden cambiar de tamaño dinámicamente (se pueden insertar y eliminar objetos).
+- Pueden ir provistas de ordenamiento (podemos ordenar los objetos que tenemos dentro).
+
+**List**
+Tenemos 3 tipos...
+- ArrayList [🔗](https://youtu.be/D0VH50zFVIA?si=pnG7SExyFBaTndu6): Es una calse que se representa como una matriz dinámica, puede almacenar distintos conjuntos de arrays, tiene indice y tiene manipulación lenta a la hora de hacer cambios.
+
+    <details>
+    <summary>Code Example</summary>
+
+    ```java
+    package arraylists;
+
+    public class Persona {
+    private int indice;
+    private String name;
+    private int edad;
+    
+    public Persona() {
+    }
+
+    public Persona(int indice, String name, int edad) {
+        this.indice = indice;
+        this.name = name;
+        this.edad = edad;
+    }
+
+    public int getIndice() {
+        return indice;
+    }
+
+    public void setIndice(int indice) {
+        this.indice = indice;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    }
+    ```
+
+    ```java
+    package arraylists; /*
+    El error que estás viendo sugiere que hay un problema con la resolución de la clase java.util.AbstractList, que es una clase en el paquete java.util del JDK estándar de Java. Este error indica que tu entorno de desarrollo no puede encontrar esta clase, a pesar de que debería estar disponible en cualquier instalación estándar de Java.
+
+    */
+
+    import java.util.ArrayList;
+    import java.util.List;
+    public class pruebaArrayList {
+        public static void main(String[] args) {
+            //Creando personas 
+            List<Persona> lista = new ArrayList<Persona> ();
+            lista.add(new Persona(1, "Santiago", 23));
+            lista.add(new Persona(2, "Mariana", 21));
+            lista.add(new Persona(3, "Deisy", 12));
+            lista.add(new Persona(4, "Jose", 77));
+
+            //Recorridos
+            System.out.println("---For---");
+            for (int i = 0; i<lista.size(); i++){
+                System.out.println("Prueba: "+ lista.get(i).getName());
+            }
+            System.out.println("---For each---");
+            //Recorrer elemento por elemento (sin el indice)
+            //por cada Persona perso (cariable auxiliar), dentro de la lista
+            for(Persona perso:lista){
+                System.out.println("Prueba: " + perso.getName());
+            }
+        }
+    }
+    ```
+    </details>
+
+- LinkedList
+- Stack
 
 
 ## Others
