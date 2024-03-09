@@ -1,6 +1,6 @@
 package ClasesObjetos;
 
-public class Persona {
+public class Persona implements Comparable<Persona>{
     //Atributos
     private String name;
     private String firstSurname;
@@ -97,6 +97,11 @@ public class Persona {
         if (dni != other.dni)
             return false;
         return true;
+    }
+
+    @Override
+    public int compareTo(Persona persona) {
+        return this.age - persona.age;
     }
 }
 

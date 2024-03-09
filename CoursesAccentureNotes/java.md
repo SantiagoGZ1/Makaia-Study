@@ -1007,6 +1007,32 @@ Tenemos 3 tipos...
 - LinkedList
 - Stack
 
+### interfaz set
+
+Es una colección sin ordenar que no permite elementos duplicados y puede contener, como máximo, un elemento nulo. Esta interfaz contiene, únicamente, los métodos heredados de Collection.
+
+Es importante destacar que, para comprobar si los elementos están duplicados, es necesario que dichos elementos tengan implementada, de forma correcta, los métodos equals y hashCode.
+
+Alguno de los métodos básicos para trabajar con la interface Set son:
+ 
+
+Objeto.size(): Devuelve el número de elementos que contiene.
+
+Objeto.isEmpty(): Verifica si se encuentra vacío.
+
+Objeto.add(elemento): Inserta un elemento en el conjunto siempre que no esté repetido. Devuelve true o false para indicar si se ha podido insertar.
+
+Object.remove(elemento): Elimina el elemento que se especifica si se encuentra en el set. Devuelve true o false para indicar si el elemento está o no presente y si fue eliminado.
+ 
+Como es una interfaz, necesita una implementación. Aquí tenemos las 3 implementaciones más comunes para la interfaz Set :
+ 
+
+HashSet: Los elementos (no repetidos) no están ordenados, es decir, esta implementación almacena los elementos como en una bolsa sin ordenar. Es la implementación con mejor rendimiento de todas, pero no garantiza ningún orden a la hora de realizar iteraciones.
+
+LinkedHashSet: Los elementos (no repetidos) no están ordenados, pero funcionan como punteros, es decir, esta implementación almacena los elementos en función del orden de inserción.
+
+TreeSet: Los elementos se almacenan distribuidos como una jerarquía de árbol, es decir, esta implementación almacena los elementos ordenándolos en función de sus valores. Los elementos almacenados deben implementar la interfaz Comparable que veremos más adelante.
+
 
 ## Others
 
